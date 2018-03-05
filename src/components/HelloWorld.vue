@@ -1,20 +1,17 @@
 <template>
   <div class="hello">
-    <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
-    <!-- slides -->
-    <swiper-slide><img src="../assets/logo.png"> 1</swiper-slide>
-    <swiper-slide><img src="../assets/logo.png"> 2</swiper-slide>
-    <swiper-slide><img src="../assets/logo.png"> 3</swiper-slide>
-    <swiper-slide><img src="../assets/logo.png"> 4</swiper-slide>
-    <swiper-slide><img src="../assets/logo.png"> 5</swiper-slide>
-    <swiper-slide><img src="../assets/logo.png"> 6</swiper-slide>
-    <swiper-slide><img src="../assets/logo.png"> 7</swiper-slide>
-    <!-- Optional controls -->
-    <div class="swiper-pagination"  slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-    <div class="swiper-scrollbar"   slot="scrollbar"></div>
-  </swiper>
+    <swiper id="mySwiper" :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
+      <!-- slides -->
+      <swiper-slide><img src="../assets/logo.png"> 1</swiper-slide>
+      <swiper-slide><img src="../assets/logo.png"> 2</swiper-slide>
+      <swiper-slide><img src="../assets/logo.png"> 3</swiper-slide>
+      <swiper-slide><img src="../assets/logo.png"> 4</swiper-slide>
+      <swiper-slide><img src="../assets/logo.png"> 5</swiper-slide>
+      <swiper-slide><img src="../assets/logo.png"> 6</swiper-slide>
+      <swiper-slide><img src="../assets/logo.png"> 7</swiper-slide>
+      <!-- Optional controls -->
+      <div class="swiper-scrollbar"   slot="scrollbar"></div>
+    </swiper>
   </div>
 </template>
 
@@ -30,7 +27,12 @@ export default {
   },
   data () {
     return {
-      msg: 'this is the hello world component'
+      msg: 'this is the hello world component',
+      swiperOption: {
+        scrollbar: {
+          el: '.mySwiper'
+        }
+      }
     }
   },
   computed: {
@@ -42,7 +44,7 @@ export default {
       // current swiper instance
       // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
       console.log('this is current swiper instance object', this.swiper)
-      this.swiper.slideTo(3, 1000, false)
+      this.swiper.slideTo(1, 1000, false)
     }
 }
 </script>
@@ -62,5 +64,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.swiper-slide {
+  width: 250px;
 }
 </style>
